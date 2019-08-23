@@ -39,9 +39,10 @@ services:
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=af_db
+      - PMA_PORTS=33061
       - MYSQL_ROOT_PASSWORD=test123
     ports:
-      - 3080:80
+      - 3082:80
 
   node_client:
     image: node:latest
