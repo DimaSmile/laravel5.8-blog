@@ -41,9 +41,7 @@
                             <textarea name="content_raw"
                                       id="content_raw"
                                       class="form-control"
-                                      rows="20">
-                                {{ old('content_raw', $item->content_raw) }}
-                            </textarea>
+                                      rows="20">{{ old('content_raw', $item->content_raw) }}</textarea>
                         </div>
                     </div>
 
@@ -81,9 +79,7 @@
                             <label for="excerpt">Выдержка</label>
                             <textarea name="excerpt"
                                         class="form-control"
-                                        rows="3">
-                                {{ old('excerpt', $item->excerpt) }}
-                            </textarea>
+                                        rows="3">{{ old('excerpt', $item->excerpt) }}</textarea>
                         </div>
 
                         <div class="form-check">
@@ -93,7 +89,7 @@
                                         type="checkbox" 
                                         name="is_published"
                                         class="form-check-input"
-                                        value="{{ $item->is_published }}"
+                                        value="1"
                                         @if ($item->is_published)
                                         checked="checked"
                                         @endif
