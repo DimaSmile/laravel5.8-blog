@@ -10,6 +10,8 @@ class BlogCategory extends Model
 
     use SoftDeletes;
 
+    const ROOT = 1;
+
     protected $fillable = 
         [
             'title',
@@ -17,4 +19,39 @@ class BlogCategory extends Model
             'parent_id',
             'description',
         ];
+
+    /**
+     * Получить родительскую категорию
+     *
+     * @return BlogCategory
+     */
+    public function parentCategory()
+    {
+        return $this->belongsTo(BlogCategory::class, 'parent_id', 'id');
+    }
+
+    /**
+     * Пример акксесора(Accessor)
+     *
+     * @return string
+     */
+    public function getParentTitleAttribute()
+    {
+        $title = $this->parentCategory->title
+            ?? ($this->isRoot()
+                ? 'Корень'
+                : '???');
+
+        return $title;
+    }
+
+    /**
+     * Являеться ли текущая директория корневой
+     *
+     * @return boolean
+     */
+    public function isRoot()
+    {
+        return $this->id === BlogCategory::ROOT;
+    }
 }
