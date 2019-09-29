@@ -54,4 +54,30 @@ class BlogCategory extends Model
     {
         return $this->id === BlogCategory::ROOT;
     }
+
+    /**
+     * Пример аксесуара
+     *
+     * исполняется когда мы берем значение аттрибута(свойства) из объекта модели 
+     * $model->title;
+     *
+     * @param string $valueFromObject
+     * @return bool|mixed|null|string|string[]
+     */
+    public function getTitleAttribute($valueFromObject)
+    {
+        return mb_strtoupper($valueFromObject);
+    }
+
+    /**
+     * Пример мутатора
+     * исполняется когда мы устанавливаем новое значение аттрибуту(свойству) из объекта модели
+     * $model->title = 'new value';
+     *
+     * @param string $valueFromObject
+     */
+    public function setTitleAttribute($incomingValue)
+    {
+        $this->attributes['title'] = strtolower($incomingValue);
+    }
 }
