@@ -71,8 +71,7 @@
                                 type="text"
                                 name="slug"
                                 class="form-control"
-                                minlength="3"
-                                required>
+                                minlength="3">
                         </div>
 
                         <div class="form-group">

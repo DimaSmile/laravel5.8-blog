@@ -24,6 +24,12 @@ class BlogPost extends Model
 {
     use SoftDeletes;
 
+    /**
+     * default user id
+     * 
+     * @var int
+     */
+    const UNKNOWN_USER = 1;
 
     /**
      * property $fillable need to mass update
@@ -38,7 +44,6 @@ class BlogPost extends Model
         'content_raw',
         'is_published',
         'published_at',
-        'user_id'
     ];
 
     /**

@@ -4,6 +4,11 @@
         <div class="alert alert-danger" role="alert">
             <button class="alert-dismissible close fade show" data-dismiss="alert"><span aria-hidden="true">x</span></button>
             <strong>{{ $errors->first() }}</strong>
+            <ul>
+                @foreach ($errors->all() as $errorTxt)
+                    <li>{{ $errorTxt }}</li>
+                @endforeach
+            </ul>
         </div>
     </div>
 </div>

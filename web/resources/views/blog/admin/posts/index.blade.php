@@ -4,7 +4,7 @@
     <div class="container">
         <nav class="navbar navbar-expand navbar-light bg-light">
             <div class="nav navbar-nav">
-                <a name="" id="" class="btn btn-primary" href="{{ route('blog.admin.posts.create')}}" role="button">Add category</a>
+                <a name="" id="" class="btn btn-primary" href="{{ route('blog.admin.posts.create')}}" role="button">Add post</a>
             </div>
         </nav>
         <table class="table table-light">
