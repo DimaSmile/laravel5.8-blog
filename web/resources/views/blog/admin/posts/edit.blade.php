@@ -21,8 +21,8 @@
                     </div>
                 </div>
         </form>
-        
-        @if ($item->exist)
+
+        @if ($item->exists())
             <br>
             <form method="POST" action="{{ route('blog.admin.posts.destroy', $item->id) }}">
                 @method('DELETE')
@@ -31,7 +31,7 @@
                     <div class="col-md-8">
                         <div class="card-block card">
                             <div class="card-body ml-auto">
-                                <button type="button" class="btn btn-link">Удалить</button>
+                                <button type="submit" class="btn btn-link">Удалить</button>
                             </div>
                         </div>
                     </div>

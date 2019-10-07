@@ -19,7 +19,8 @@
     <div class="col-md-11">
         <div class="alert alert-success" role="alert">
             <button class="alert-dismissible close fade show" data-dismiss="alert"><span aria-hidden="true">x</span></button>
-            <strong>{{ session()->get('success') }}</strong>
+            <strong>{{ session()->get('success') }} </strong>
+            <strong><a href="{{ route('blog.admin.posts.restore', ['id' => session()->get('restore_id')]) }}">Восстановить запись</a></strong>
         </div>
     </div>
 </div>

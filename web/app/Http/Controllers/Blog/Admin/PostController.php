@@ -164,6 +164,37 @@ class PostController extends BaseController
      */
     public function destroy($id)
     {
-        dd(__METHOD__, $id);
+        $result = BlogPost::destroy($id);//softDelete запись в базе остаеться
+        // $result = BlogPost::find($id)->forceDelete();//удаление записи навсегда, при установленном softdelete
+
+        if ($result) {
+            return redirect()
+                ->route('blog.admin.posts.index')
+                ->with(['success' => "Запись id[$id] удалена", 'restore_id' => $id]);
+        } else {
+            return back()->withErrors(['msg' => 'Ошибка удаления']);
+        }
+    }
+
+    /**
+     * Restore the record.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function restore(Request $request)
+    {
+        $post = BlogPost::withTrashed()
+            ->where('id', $request->id)
+            ->first();
+
+        if ($post) {
+            $post->restore();
+            return redirect()
+                ->route('blog.admin.posts.index')
+                ->with(['success' => "Запись с id[$request->id] восстановлена"]);
+        } else {
+            return back()->withErrors(['msg' => 'Ошибка восстановления']);
+        }
     }
 }

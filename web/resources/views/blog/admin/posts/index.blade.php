@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('blog.admin.posts.includes.result_messages')
     <div class="container">
         <nav class="navbar navbar-expand navbar-light bg-light">
             <div class="nav navbar-nav">
