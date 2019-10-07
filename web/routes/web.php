@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Blog\Admin\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +41,10 @@ Route::group($groupData, function(){
     Route::resource('posts', 'PostController')
         ->except(['show'])
         ->names('blog.admin.posts');
+
+    Route::get('posts/restore', 'PostController@restore')->name('blog.admin.posts.restore');
 });
 
+
+Route::get('collections', 'DiggingDeeperController@collections');
 //Route::resource('rest', 'RestTestController')->names('restTest');
