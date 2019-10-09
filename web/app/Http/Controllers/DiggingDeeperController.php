@@ -94,6 +94,43 @@ class DiggingDeeperController extends Controller
         //     ->where('exists', '=', false)
         //     ->values() //обнуляет ключи
             ;
-        dd($result);
+        // dd($result);
+
+        $newItem = new \stdClass();
+        $newItem->id = 99999;
+
+        $newItem2 = new \stdClass();
+        $newItem2->id = 88888;
+        // dd($newItem, $newItem2);
+
+        // установить элемент в начало коллекции
+        // $collection->prepend($newItem)->first();//добавить элемент в начало коллекции
+        // $collection->push($newItem2)->last();//добавить элемент в конец коллекции
+        // dd($collection);
+        // $newItemFirst = $collection->prepend($newItem)->first();//меняет коллекцию
+        // $newItemLast = $collection->push($newItem2)->last();//меняет коллекцию
+        // $pulledItem = $collection->pull(10);//забрать десятый элемент, удаляет из коллекции элемент и возвращает его
+
+        // dd(compact('collection', 'newItemFirst', 'newItemLast', 'pulledItem'));
+
+        // филтрация, замена orWhere
+        // $filtered = $collection->filter(function ($item){
+        //     $byDay = $item->created_at->isFriday();
+        //     $byDate = $item->created_at->day == 9;
+
+        //     // $result = $item->created_at->isFriday() && ($item->created_at->day == 11);
+        //     $result = $byDay && $byDate;
+
+        //     return $result;
+        // });
+
+        // dd(compact('filtered'));
+
+        $sortedSimpleCollection = collect([5, 3, 1, 4, 6, 2])->sort();//делает значения ключами и сортирует по порядку значения
+        $sortedSimpleCollectionClearKeys = collect([5, 3, 1, 4, 6, 2])->sort()->values();//назначает новые ключи по порядку(сбрасывает ключи)
+        $sortedAscCollection = $collection->sortBy('created_at');//от меньшего к большему
+        $sortedDescCollection = $collection->sortByDesc('item_id');
+
+        dd(compact('sortedSimpleCollection', 'sortedSimpleCollectionClearKeys', 'sortedAscCollection', 'sortedDescCollection'));
     }
 }
