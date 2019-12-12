@@ -47,4 +47,9 @@ Route::group($groupData, function(){
 
 
 Route::get('collections', 'DiggingDeeperController@collections');
+
+Route::prefix('fundamendals')->group( function() {
+    Route::get('property-container', 'FundamentalPatternsController@PropertyContainer');
+    Route::get('delegation', 'FundamentalPatternsController@Delegation');
+});
 //Route::resource('rest', 'RestTestController')->names('restTest');
