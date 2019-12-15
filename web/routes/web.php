@@ -51,5 +51,6 @@ Route::get('collections', 'DiggingDeeperController@collections');
 Route::prefix('fundamendals')->group( function() {
     Route::get('property-container', 'FundamentalPatternsController@PropertyContainer');
     Route::get('delegation', 'FundamentalPatternsController@Delegation');
+    Route::get('event-channel', 'FundamentalPatternsController@EventChannel');
 });
 //Route::resource('rest', 'RestTestController')->names('restTest');

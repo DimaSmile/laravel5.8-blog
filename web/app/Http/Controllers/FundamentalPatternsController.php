@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DesignPatterns\Fundamental\Delegation\AppMessenger;
 use App\DesignPatterns\Fundamental\PropertyContainer\BlogPost;
+use App\DesignPatterns\Fundamental\EventChannel\EventChannelJob;
 
 class FundamentalPatternsController extends Controller
 {
@@ -54,5 +55,14 @@ class FundamentalPatternsController extends Controller
         \DebugBar::info($item);
 
         return view('dump', compact('name', 'item'));
+    }
+
+    public function EventChannel()
+    {
+        $name = 'Event Channel';
+        $eventChannel = new EventChannelJob();
+        $eventChannel->run();
+
+        return view('dump', compact('name'));
     }
 }
